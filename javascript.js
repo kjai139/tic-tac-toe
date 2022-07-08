@@ -1,9 +1,17 @@
-const gameBoardContainer = document.querySelector('.gameBoard')
+const gameBoardContainer = document.querySelector('.gameBoardContainer')
 
 const createGameBoard = () => {
-    let divCount = 9
-    for (divCount > 0; divCount++) {
+    let gameBoard = document.createElement('div')
+    gameBoard.classList.add('gameBoard')
+    gameBoardContainer.appendChild(gameBoard)
+
+    for (let divCount = 0;divCount < 9; divCount++) {
         let newDiv = document.createElement('div')
-        newdiv.classList.add(`div#${divCount}`)
+        newDiv.setAttribute('id', `block${divCount}`)
+        newDiv.classList.add('blocks')
+        gameBoard.appendChild(newDiv)
     }
 }
+
+//
+createGameBoard()

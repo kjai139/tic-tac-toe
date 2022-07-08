@@ -50,6 +50,40 @@ button > li {
     margin-left: 140px;
 }
 
+.gameBoardContainer {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
 .gameBoard {
+    width: 600px;
+    height: 600px;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.blocks {
     
+    border: 2px solid black;
+}
+
+#block0, #block1, #block2 {
+    border-top:none;
+    
+
+
+}
+
+#block6, #block7, #block8 {
+    border-bottom: none;
+}
+
+#block0, #block3, #block6 {
+    border-left:none;
+}
+
+#block2, #block5, #block8 {
+    border-right: none;
 }
