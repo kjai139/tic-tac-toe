@@ -1,0 +1,55 @@
+:root {
+    --uiBg: #67e8f9;
+    --uiFont: 'Acme', sans-serif;
+
+}
+
+* {
+    box-sizing: content-box;
+}
+
+body, html {
+    margin: 0;
+    
+    
+
+}
+
+button > li {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.gameMenu {
+    position: fixed;
+    background-color: var(--uiBg);
+    height:100vh;
+
+    display:flex;
+    width: 140px;
+    justify-content: center;
+
+    align-items: center;
+    
+}
+
+.menuList {
+    
+    display:flex;
+    flex-direction: column;
+    padding: 0;
+    gap: 10px;
+}
+
+.menuList > button {
+    cursor: pointer;
+    font-family: var(--uiFont);
+}
+
+.mainContainer {
+    margin-left: 140px;
+}
+
+.gameBoard {
+    
+}
