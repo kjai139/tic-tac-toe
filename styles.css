@@ -104,6 +104,7 @@ button > li {
     margin-left: var(--uiLeftMargin);
     left:40%;
     top:40%;
+    z-index: 1;
 
 }
 
@@ -116,6 +117,7 @@ button > li {
     border-radius: var(--borderRadius);
     gap:5px;
     font-family: var(--uiFont);
+    
 }
 
 .playerFormContainer > form > h3 {
@@ -141,4 +143,5 @@ button > li {
     height: 100%;
 
     background-color: rgb(0, 0, 0, 0.5);
+    visibility: hidden;
 }
