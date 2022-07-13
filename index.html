@@ -14,7 +14,7 @@
 <body>
     <div class="gameMenu">
         <ul class="menuList">
-            <button><img src="svg/gamepad-round.svg" alt=""><li>New Game</li></button>
+            <button id="newGameBtn"><img src="svg/gamepad-round.svg" alt=""><li>New Game</li></button>
             <button><img src="svg/billboard.svg" alt=""><li>Scoreboard</li></button>
             <button><img src="svg/cog.svg" alt=""><li>Settings</li></button>
         </ul>
@@ -23,15 +23,15 @@
         <div class="gameBoardContainer"></div>
     </div>
     <div class="playerFormContainer">
-        <form action="" method="post">
+        <form method="post" id="gameForm" name="startForm">
             <h3>Create Game</h3>
             <label for="player1">Player 1's Name:</label>
-            <input type="text" name="p1name" id="p1name" required>
+            <input type="text" name="player1" id="player1" required>
 
             <label for="player2">Player 2's Name:</label>
-            <input type="text" name="p2name" id="p2name" required>
+            <input type="text" name="player2" id="player2" required>
 
-            <button type="submit">Start</button>
+            <button type="submit" id="submitBtn">Start</button>
 
         </form>
     </div>
