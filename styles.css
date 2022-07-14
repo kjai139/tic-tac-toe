@@ -130,7 +130,7 @@ button > li {
 
 }
 
-.playerFormContainer.active {
+.playerFormContainer.active, .resultScreenDiv.active {
     
     transform: scale(1.5);
 
@@ -166,6 +166,7 @@ button > li {
 }
 
 .overlay {
+    margin-left: 140px;
     position: fixed;
     left:0%;
     top:0%;
@@ -175,6 +176,25 @@ button > li {
 
     background-color: rgb(0, 0, 0, 0.5);
     visibility: hidden;
+}
+.resultScreenDiv {
+    border-radius: var(--borderRadius);
+    display:flex;
+    flex-direction: column;
+    padding:40px;
+    background-color: var(--formBgColor);
+    position: fixed;
+    margin-left: var(--uiLeftMargin);
+    left: 35%;
+    top: 40%;
+    z-index: 1;
+    transform: scale(0);
+    transition: 0.2s ease-in-out;
+    font-family: var(--uiFont);
+}
+
+#againBtn {
+    font-family: var(--uiFont);
 }
 
 .overlay.active {
