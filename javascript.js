@@ -7,6 +7,16 @@ const scoreboardBtn = document.querySelector('#scoreboardBtn')
 const playAgainBtn = document.querySelector('#againBtn')
 const resultScreen = document.querySelector('.resultScreenDiv')
 const resultMsg = document.querySelector('.resultMsg')
+const p1scoreName = document.querySelector('.p1scoreName')
+const p1scoreMsg = document.querySelector('.p1scoreMsg')
+const p2scoreName = document.querySelector('.p2scoreName')
+const p2scoreMsg = document.querySelector('.p2scoreMsg')
+const tieName = document.querySelector('.tieName')
+const tieMsg = document.querySelector('.tieMsg')
+const scoreboardContainer = document.querySelector('.scoreboardContainer')
+const endName = document.querySelector('.endWinnerName')
+const endMsg = document.querySelector('.endMsg')
+const endBtn = document.querySelector('#exitBtn')
 let firstRun = true
 
 
@@ -17,6 +27,7 @@ const startGame = () => {
     overlay.classList.add('active')
     playerFormDisplay.classList.add('active')
     resultScreen.classList.remove('active')
+    scoreboardContainer.classList.remove('active', 'end')
     
 }
 
@@ -59,14 +70,32 @@ const submitForm = (event) => {
         p1wins = 0
         p2wins = 0
         tie = 0
+
+        scoreboardOpen = false
     
         const gBoard = ['', '', '', '', '', '', '', '', '']
 
         //getscore
         const getScore = () => {
-            console.log(`${p1}:${p1wins} wins`)
-            console.log(`${p2}:${p2wins} wins`)
-            console.log(`tie:${tie}`)
+            
+            if (scoreboardOpen == true){
+                scoreboardContainer.classList.remove('active')
+                scoreboardOpen = false
+            } else {
+                scoreboardContainer.classList.add('active')
+                console.log(`${p1}:${p1wins} wins`)
+                p1scoreName.textContent = `${p1}:`
+                p1scoreMsg.textContent =`${p1wins} win(s)`
+                console.log(`${p2}:${p2wins} wins`)
+                p2scoreName.textContent = `${p2}:`
+                p2scoreMsg.textContent = `${p2wins} win(s)`
+                console.log(`tie:${tie}`)
+                tieName.textContent = `Tie:`
+                tieMsg.textContent = `${tie}`
+                scoreboardOpen = true
+            }
+            
+            
         }
 
         //playagain
@@ -78,6 +107,22 @@ const submitForm = (event) => {
             overlay.classList.remove('active')
             resultScreen.classList.remove('active')
 
+        }
+        //endgame
+        const endGame = () => {
+            getScore()
+            resultScreen.classList.remove('active')
+            scoreboardContainer.classList.add('active', 'end')
+            if (p1wins > p2wins) {
+                endName.textContent = `Winner:`
+                endMsg.textContent = `${p1}`
+            } else if (p1wins < p2wins) {
+                endName.textContent = `Winner:`
+                endMsg.textContent = `${p2}`
+            } else if (p1wins == p2wins) {
+                endName.textContent = `It's a tie!`
+                
+            }
         }
         
 
@@ -104,6 +149,7 @@ const submitForm = (event) => {
                 
                 target.disabled = true
                 if (checkGameWinner('p1')){
+                    getScore()
                     overlay.classList.add('active')
                     resultScreen.classList.add('active')
                 } else {
@@ -121,6 +167,7 @@ const submitForm = (event) => {
                 
                 target.disabled = true
                 if (checkGameWinner('p2')){
+                    getScore()
                     overlay.classList.add('active')
                     resultScreen.classList.add('active')
                 } else {
@@ -187,7 +234,7 @@ const submitForm = (event) => {
     
         }
     } 
-    return {createGameBoard, getScore, playAgain}
+    return {createGameBoard, getScore, playAgain, endGame}
     }
     
 
@@ -199,6 +246,8 @@ const submitForm = (event) => {
     if (firstRun == true) {
         scoreboardBtn.addEventListener('click', g1.getScore)
         playAgainBtn.addEventListener('click', g1.playAgain)
+        endBtn.addEventListener('click', g1.endGame)
+        
 
     }
     

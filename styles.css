@@ -130,10 +130,18 @@ button > li {
 
 }
 
-.playerFormContainer.active, .resultScreenDiv.active {
+.playerFormContainer.active, .resultScreenDiv.active  {
     
     transform: scale(1.5);
 
+}
+.scoreboardContainer.active {
+    transform: scale(1);
+}
+
+.scoreboardContainer.end {
+    left:35%;
+    top:40%;
 }
 
 .playerFormContainer > form {
@@ -177,7 +185,7 @@ button > li {
     background-color: rgb(0, 0, 0, 0.5);
     visibility: hidden;
 }
-.resultScreenDiv {
+.resultScreenDiv, .scoreboardContainer {
     border-radius: var(--borderRadius);
     display:flex;
     flex-direction: column;
@@ -193,8 +201,50 @@ button > li {
     font-family: var(--uiFont);
 }
 
-#againBtn {
+.scoreboardContainer {
+    top: 5%;
+    left:5%;
+
+}
+
+.scoreboardContainer > div {
+    display:flex;
+}
+
+.p1scoreName, .p2scoreName, .tieName {
     font-family: var(--uiFont);
+    font-weight: bold;
+}
+
+.endWinnerName, .endMsg {
+    font-family: var(--uiFont);
+    font-weight: bold;
+    font-size: 30px;
+    color: green;
+}
+
+.scoreboardContainer > div > p {
+    margin: 5px 5px 5px 0px;
+}
+
+.bottomBtns {
+    display:flex;
+    flex-direction: column;
+    margin: 8px;
+    gap: 10px;
+}
+
+#againBtn > img, #exitBtn > img {
+    width: 20px;
+    height: 20px;
+}
+
+#againBtn, #exitBtn {
+    font-family: var(--uiFont);
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
 .overlay.active {
