@@ -28,6 +28,8 @@ const startGame = () => {
     playerFormDisplay.classList.add('active')
     resultScreen.classList.remove('active')
     scoreboardContainer.classList.remove('active', 'end')
+    endName.textContent = ''
+    endMsg.textContent = ''
     
 }
 
@@ -269,7 +271,7 @@ const submitForm = (event) => {
 
     
    
-    return {game}
+    
 } 
 
 playerForm.addEventListener('submit', submitForm)
